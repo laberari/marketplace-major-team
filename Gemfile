@@ -5,6 +5,8 @@ gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
+gem 'ransack', '~> 4.3'
+
 gem 'devise', '~> 4.9', '>= 4.9.4'
 
 gem 'bootstrap', '~> 5.3', '>= 5.3.3'

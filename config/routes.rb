@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   # Rutas para categorías
   resources :categories, only: [:index, :show]
 
+  # Rutas para ofertas 
+  resources :offers 
+
+  # Rutas para requerimientos
+  resources :requests 
+
+
   # Ruta de verificación de salud (opcional, puedes dejarla comentada si no la usas)
   # get "up" => "rails/health#show", as: :rails_health_check
 end 

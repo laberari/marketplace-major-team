@@ -1,2 +1,13 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1><%= @product.name %></h1>
+
+<p><strong>Descripción:</strong> <%= @product.description %></p>
+<p><strong>Precio:</strong> <%= number_to_currency(@product.price) %></p>
+<p><strong>Categoría:</strong> <%= @product.category.name %></p>
+
+<% if @product.category&.name == "Mercado Laboral" %>
+  <p><strong>Tipo de Servicio:</strong> <%= @product.service_type %></p>
+  <p><strong>Años de Experiencia:</strong> <%= @product.experience_years %></p>
+  <p><strong>Validado:</strong> <%= @product.is_validated ? "Sí" : "No" %></p>
+<% end %>
+
+<%= link_to "Volver a Categorías", categories_path, class: "btn btn-secondary" %>
