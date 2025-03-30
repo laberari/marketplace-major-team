@@ -9,7 +9,14 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-      @import "bootstrap"; 
+ /*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+      
     
 
  

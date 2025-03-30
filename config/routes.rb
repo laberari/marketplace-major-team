@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # Rutas para categorías
   resources :categories, only: [:index, :show]
 
+  # Rutas RESTful para productos 
+  resources :products 
+
   # Rutas para ofertas 
   resources :offers 
 
@@ -20,4 +23,8 @@ Rails.application.routes.draw do
 
   # Ruta de verificación de salud (opcional, puedes dejarla comentada si no la usas)
   # get "up" => "rails/health#show", as: :rails_health_check
+
+# Agrega esta línea para servir activos en desarrollo
+get '/stylesheets/*path', to: redirect('/assets/%{path}') 
+
 end 

@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+def index 
+  @products = Product.all 
+  # Acción para mostrar la lista de productos 
+end
+
   def create
     @product = Product.new(product_params)
     if @product.save
