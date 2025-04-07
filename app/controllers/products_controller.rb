@@ -11,13 +11,16 @@ def index
 end
 
   def create
+    Rails.logger.debug("Product Params: #{product_params.inspect}")
     @product = Product.new(product_params)
     if @product.save
       redirect_to @product, notice: "Producto creado exitosamente."
     else
+      flash.now[:alert] = "Error al guardar el Producto: #{@product.errors.full_messages.join(', ')}"
       render :new
     end
   end
+  
 
   def show
     # Muestra los detalles de un producto específico
@@ -29,15 +32,15 @@ end
 
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: "Producto actualizado exitosamente."
+      redirect_to @product, notice: "Producto actualizado exitosamente." 
     else
       render :edit
     end
-  end
+  end 
 
   def destroy
     @product.destroy
-    redirect_to categories_path, notice: "Producto eliminado exitosamente."
+    redirect_to products_path, notice: "Producto eliminado exitosamente."
   end
 
   private
@@ -47,6 +50,7 @@ end
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category_id, :service_type, :experience_years, :is_validated)
+    params.require(:product).permit(:name, :description, :price, :image, :category_id, :service_type, :experience_years, :is_validated)
   end
 end
+ 

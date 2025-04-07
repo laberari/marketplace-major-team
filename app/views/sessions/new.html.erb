@@ -1,0 +1,15 @@
+<h1>Iniciar Sesión</h1>
+
+<%= form_with url: '/login', local: true do |form| %>
+  <div>
+    <%= form.label :email, "Correo Electrónico" %>
+    <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :password, "Contraseña" %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "Iniciar Sesión", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<h1>Inscripción como Vendedor Senior</h1>
+
+<%= form_with model: @senior_seller, local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :full_name, "Nombre Completo", class: "form-label" %>
+    <%= form.text_field :full_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :dni_rut, "DNI/RUT", class: "form-label" %>
+    <%= form.text_field :dni_rut, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, "Correo Electrónico", class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone, "Teléfono de Contacto", class: "form-label" %>
+    <%= form.telephone_field :phone, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :biography, "Biografía", class: "form-label" %>
+    <%= form.text_area :biography, class: "form-control", rows: 4, required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :certifications, "Certificaciones/Diplomas", class: "form-label" %>
+    <%= form.file_field :certifications, multiple: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :references, "Referencias (opcional)", class: "form-label" %>
+    <%= form.text_area :references, class: "form-control", rows: 3 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Enviar Solicitud", class: "btn btn-primary" %>
+  </div>
+<% end %>

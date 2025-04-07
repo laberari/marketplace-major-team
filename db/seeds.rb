@@ -25,3 +25,12 @@ categories = [
 categories.each do |category_name|
   Category.find_or_create_by!(name: category_name)
 end
+
+# Crear el usuario "Ana"
+User.find_or_create_by!(email: "aquelasol1@gmail.com") do |user|
+  user.name = "Ana"
+  user.password = "Abeja47"
+  user.profile_picture = "Personal"
+  user.logo = "Personal"
+  user.description = "Elaboración de Mermeladas Caseras ricas sin saborizantes ni conservantes artificiales"
+end

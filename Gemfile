@@ -5,8 +5,13 @@ gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
+#Activa las validaciones de las extensiones de las imágenes 
+gem 'active_storage_validations'
+
 #gem 'bootstrap', '~> 5.3'
 gem 'ransack', '~> 4.3'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.20'
 
 gem 'devise', '~> 4.9', '>= 4.9.4'
 

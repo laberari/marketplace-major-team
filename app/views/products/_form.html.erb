@@ -1,5 +1,6 @@
-<%= form_with model: product, local: true do |form| %>
-    <div class="mb-3">
+<%= form_with model: @product, local: true, multipart: true do |form| %> 
+  <!-- Campos del formulario -->
+<div class="mb-3">
       <%= form.label :name, "Nombre del Producto/Servicio", class: "form-label" %>
       <%= form.text_field :name, class: "form-control", required: true %>
     </div>
@@ -9,6 +10,17 @@
       <%= form.text_area :description, class: "form-control", rows: 4, required: true %>
     </div>
   
+    <div>
+    <%= form.label :image, "Foto del Producto/Servicio" %>
+    <%= form.file_field :image %>
+  </div>
+  <!-- Botón de envío -->
+  <div>
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+  
+
+
     <div class="mb-3">
       <%= form.label :price, "Precio", class: "form-label" %>
       <%= form.number_field :price, step: 0.01, class: "form-control", required: true %>
@@ -19,7 +31,7 @@
       <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Selecciona una categoría" }, class: "form-select", required: true %>
     </div>
   
-    <% if product.category&.name == "Mercado Laboral" %>
+    <% if @product.category&.name == "Mercado Laboral" %>
       <div class="mb-3">
         <%= form.label :service_type, "Tipo de Servicio", class: "form-label" %>
         <%= form.text_field :service_type, class: "form-control", required: true %>
@@ -35,8 +47,10 @@
         <%= form.check_box :is_validated, class: "form-check-input" %>
       </div>
     <% end %>
+
+    <div>
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+<% end %>
   
-    <div class="mb-3">
-      <%= form.submit "Guardar", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+    

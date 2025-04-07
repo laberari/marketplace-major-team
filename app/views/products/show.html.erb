@@ -8,6 +8,11 @@
   <p><strong>Tipo de Servicio:</strong> <%= @product.service_type %></p>
   <p><strong>Años de Experiencia:</strong> <%= @product.experience_years %></p>
   <p><strong>Validado:</strong> <%= @product.is_validated ? "Sí" : "No" %></p>
+
+  <p>Imagen cargada correctamente:</p>
+  <%= image_tag @product.image %>
+<% else %>
+  <p>No se cargó ninguna imagen.</p>
 <% end %>
 
 <%= link_to "Volver a Categorías", categories_path, class: "btn btn-secondary" %>

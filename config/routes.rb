@@ -1,30 +1,27 @@
 Rails.application.routes.draw do
-  get "products/new"
-  get "products/create"
-  get "products/show"
-  get "products/edit"
-  get "products/update"
-  get "products/destroy"
-  # Ruta raíz (página principal)
-  root "pages#home"
+  # Ruta raíz (página de inicio)
+  root "home#index"
 
-  # Rutas para categorías
+  # Rutas RESTful principales
   resources :categories, only: [:index, :show]
+  resources :products
+  resources :offers
+  resources :requests
+  resources :users, only: [:new, :create, :show]
+  resources :senior_sellers, only: [:new, :create]
 
-  # Rutas RESTful para productos 
-  resources :products 
+  # Rutas personalizadas
+  get '/contact', to: 'pages#contact'
 
-  # Rutas para ofertas 
-  resources :offers 
+  # Rutas para sesiones
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  # Rutas para requerimientos
-  resources :requests 
+  # Rutas para registro
+  get 'signup', to: 'users#new', as: 'signup'
+  post 'signup', to: 'users#create'
 
-
-  # Ruta de verificación de salud (opcional, puedes dejarla comentada si no la usas)
-  # get "up" => "rails/health#show", as: :rails_health_check
-
-# Agrega esta línea para servir activos en desarrollo
-get '/stylesheets/*path', to: redirect('/assets/%{path}') 
-
-end 
+  # Redirección de activos en desarrollo
+  get '/stylesheets/*path', to: redirect('/assets/%{path}')
+end
