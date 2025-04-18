@@ -4,6 +4,8 @@ class User < ApplicationRecord
     has_many :products, dependent: :destroy
     has_one_attached :profile_picture
     has_one_attached :logo
+    has_many :product_offers, dependent: :destroy 
+    has_many :service_requests
     
 
   

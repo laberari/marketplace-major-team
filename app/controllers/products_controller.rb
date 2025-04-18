@@ -2,19 +2,18 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
-    @product = Product.new
+    @product_offer = ProductOffer.new
   end
 
 def index 
-  @products = Product.all 
-  # Acción para mostrar la lista de productos 
+  @products = Product.all   #Cargar los productos desde la base de datos  
 end
 
   def create
     Rails.logger.debug("Product Params: #{product_params.inspect}")
-    @product = Product.new(product_params)
-    if @product.save
-      redirect_to @product, notice: "Producto creado exitosamente."
+    @product_offer = ProductOffer.new(product_offer_params)
+    if @product_offer.save
+      redirect_to @product_offer, notice: "Producto creado exitosamente."
     else
       flash.now[:alert] = "Error al guardar el Producto: #{@product.errors.full_messages.join(', ')}"
       render :new
@@ -49,8 +48,8 @@ end
     @product = Product.find(params[:id])
   end
 
-  def product_params
-    params.require(:product).permit(:name, :description, :price, :image, :category_id, :service_type, :experience_years, :is_validated)
+  def product_offer_params
+    params.require(:product_offer).permit(:name, :description, :price, :image, :category_id, :service_type, :experience_years, :is_validated)
   end
 end
  

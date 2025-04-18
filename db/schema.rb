@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_06_220032) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_14_162210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -48,6 +48,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_06_220032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.bigint "request_id", null: false
+    t.bigint "product_offer_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_offer_id"], name: "index_matches_on_product_offer_id"
+    t.index ["request_id"], name: "index_matches_on_request_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -56,6 +66,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_06_220032) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_offers", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.text "description"
+    t.decimal "price"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.integer "experience_years"
   end
 
   create_table "products", force: :cascade do |t|
@@ -96,6 +118,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_06_220032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "service_requests", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.text "description"
+    t.decimal "budget"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -110,6 +142,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_06_220032) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "matches", "product_offers"
+  add_foreign_key "matches", "requests"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
 end

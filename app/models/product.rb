@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_one_attached :image
+  has_one_attached :photo 
 
   # Validaciones básicas
   validates :name, presence: true
