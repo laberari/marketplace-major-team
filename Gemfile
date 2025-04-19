@@ -34,6 +34,8 @@ gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'webpacker', '~> 5.4', '>= 5.4.4'
 
 
+
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -91,3 +93,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :production do
+  gem 'uglifier', '~> 4.2', '>= 4.2.1'
+end 
