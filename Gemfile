@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
+#gem "propshaft"
 
 #Activa las validaciones de las extensiones de las imágenes 
 gem 'active_storage_validations'
@@ -11,7 +11,13 @@ gem 'active_storage_validations'
 #gem 'bootstrap', '~> 5.3'
 gem 'ransack', '~> 4.3'
 
+gem 'sprockets', '~> 4.2', '>= 4.2.2'
+
+gem 'sprockets-rails', '~> 3.5', '>= 3.5.2'
+
 gem 'bcrypt', '~> 3.1', '>= 3.1.20'
+
+gem 'turbolinks', '~> 5.2', '>= 5.2.1'
 
 gem 'devise', '~> 4.9', '>= 4.9.4'
 
@@ -32,6 +38,11 @@ gem 'bundler', '~> 2.6', '>= 2.6.5'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 
 gem 'webpacker', '~> 5.4', '>= 5.4.4'
+
+gem 'bundler-audit', '~> 0.9.2'
+
+# Gemfile
+#gem 'webpacker', '6.0.0.rc.5'
 
 
 

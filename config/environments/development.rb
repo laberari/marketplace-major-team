@@ -6,6 +6,12 @@ Rails.application.configure do
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
+  # Activar depuración de assets
+  config.assets.debug = true
+
+# Desactivar precompilación automática en desarrollo
+  config.assets.compile = true
+
   # Do not eager load code on boot.
   config.eager_load = false
 
