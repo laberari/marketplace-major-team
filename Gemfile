@@ -29,7 +29,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.9'
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
-gem 'stripe', '~> 13.5'
+gem 'stripe', '~> 15.0'
 
 gem 'rspec-rails', '~> 7.1', '>= 7.1.1'
 
