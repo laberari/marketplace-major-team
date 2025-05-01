@@ -31,7 +31,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 gem 'stripe', '~> 13.5'
 
-gem 'rspec-rails', '~> 7.1', '>= 7.1.1'
+gem 'rspec-rails', '~> 8.0'
 
 gem 'bundler', '~> 2.6', '>= 2.6.5'
 
